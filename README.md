@@ -1,35 +1,38 @@
-# Xunit.Runner.LinqPad
+<img src = "https://raw.githubusercontent.com/asherber/Xunit.Runner.LinqPad/master/Xunit.Runner.LinqPad/icon.png" width="64px" alt="Icon" />
 
-Run [Xunit](https://xunit.github.io/) tests within LinqPad.
+# Xunit.Runner.LinqPad [![NuGet](https://img.shields.io/nuget/v/Xunit.Runner.LinqPad.svg)](https://nuget.org/packages/Xunit.Runner.LinqPad)
+
+Run [Xunit](https://xunit.github.io/) tests within LinqPad. Original code by [@mcnull](https://github.com/McNull)
 
 ## Example
 
 ```csharp
 void Main()
 {
-	XunitRunner.Run(Assembly.GetExecutingAssembly());
+    // NOTE: Must enable single-folder option in LinqPad (F4 -> Advanced)
+    XunitRunner.Run(Assembly.GetExecutingAssembly());
 }
 
 // Define other methods and classes here
 
 public class Class1
 {
-	[Fact]
-	public void PassingTest()
-	{
-		Assert.Equal(4, Add(2, 2));
-	}
+    [Fact]
+    public void PassingTest()
+    {
+        Assert.Equal(4, Add(2, 2));
+    }
 
-	[Fact]
-	public void FailingTest()
-	{
-		Assert.Equal(5, Add(2, 2));
-	}
+    [Fact]
+    public void FailingTest()
+    {
+        Assert.Equal(5, Add(2, 2));
+    }
 
-	int Add(int x, int y)
-	{
-		return x + y;
-	}
+    int Add(int x, int y)
+    {
+    return x + y;
+    }
 }
 ```
 

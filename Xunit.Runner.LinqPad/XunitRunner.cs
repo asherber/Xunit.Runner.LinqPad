@@ -102,17 +102,19 @@ namespace Xunit.Runner.LinqPad
             var shadowFolder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             var xunitFolder = Path.GetDirectoryName(typeof(Xunit.Assert).Assembly.Location);
 
-            //Console.WriteLine($"ShadowFolder \"{ shadowFolder }\"");
-            //Console.WriteLine($"XUnitFolder \"{ xunitFolder }\"");
-
             if (shadowFolder != xunitFolder || Directory.GetFiles(shadowFolder, "xunit.execution.*.dll").Length == 0)
             {
-                throw new InvalidOperationException("Please enable the shadow folder option for none-framework references (F4 -> Advanced).");
+#if NETFRAMEWORK
+                string refText = "non-framework references";
+#else
+                string refText = "NuGet assemblies";
+#endif
+
+                throw new InvalidOperationException($"Please enable the single folder option for {refText} (F4 -> Advanced).");
             }
 
             var targetAssembly = Path.Combine(shadowFolder, Path.GetFileName(assemblyFilename));
 
-            //Console.WriteLine($"Copy \"{ assemblyFilename }\" -> \"{ targetAssembly }\"");
             File.Copy(assemblyFilename, targetAssembly, true);
 
             return targetAssembly;
