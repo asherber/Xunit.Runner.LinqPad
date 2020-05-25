@@ -2,7 +2,7 @@
 
 # Xunit.Runner.LinqPad [![NuGet](https://img.shields.io/nuget/v/Xunit.Runner.LinqPad.svg)](https://nuget.org/packages/Xunit.Runner.LinqPad)
 
-Run [Xunit](https://xunit.github.io/) tests within LinqPad. Original code by [@mcnull](https://github.com/McNull)
+Run [Xunit](https://xunit.github.io/) tests within [LinqPad](https://linqpad.net). Supports LinqPad 5 and 6. Original code by [@mcnull](https://github.com/McNull).
 
 ## Example
 
